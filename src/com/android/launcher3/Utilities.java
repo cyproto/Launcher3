@@ -154,6 +154,7 @@ public final class Utilities {
     public static boolean showAllAppsLongLabels(Context context) {
         return getPrefs(context).getBoolean(PREF_ALLAPPS_LONG_LABELS, false);
     }
+    public static final String BOTTOM_SEARCH_BAR_KEY = "pref_bottom_search_bar";
 
     public static boolean useNotificationsGesture(Context context) {
         return getPrefs(context).getBoolean(PREF_NOTIFICATIONS_GESTURE, true);
@@ -250,6 +251,10 @@ public final class Utilities {
         } catch (Exception e) {
             return preferenceFallback;
         }
+    }
+
+    public static boolean isBottomSearchBarVisible(Context context) {
+        return getPrefs(context).getBoolean(BOTTOM_SEARCH_BAR_KEY, true);
     }
 
     /**
