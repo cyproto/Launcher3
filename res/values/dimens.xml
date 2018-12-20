@@ -224,14 +224,17 @@
     <dimen name="popup_item_divider_height">0.5dp</dimen>
     <dimen name="swipe_helper_falsing_threshold">70dp</dimen>
 
-<!-- Overview -->
+    <!-- Overview -->
     <dimen name="options_menu_icon_size">24dp</dimen>
     <dimen name="options_menu_thumb_size">32dp</dimen>
 
     <!-- QuickSpace -->
     <dimen name="quickspace_title_size">24dp</dimen>
-
     <dimen name="dynamic_grid_hotseat_top_padding_hidden_bottom_qsb">8dp</dimen>
     <dimen name="dynamic_grid_hotseat_bottom_padding_hidden_bottom_qsb">0dp</dimen>
 
+    <!-- Rounded Corners -->
+    <dimen name="task_corner_radius_default">2dp</dimen>
+    <dimen name="task_corner_radius_round">8dp</dimen>
+    <dimen name="task_corner_radius_op">16dp</dimen>
 </resources>

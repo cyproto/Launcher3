@@ -155,6 +155,8 @@ public final class Utilities {
         return getPrefs(context).getBoolean(PREF_ALLAPPS_LONG_LABELS, false);
     }
     public static final String BOTTOM_SEARCH_BAR_KEY = "pref_bottom_search_bar";
+    public static final String PREF_CUSTOM_RECENTS_ROUND_SWITCH = "pref_custom_recents_corner_switch";
+    public static final String PREF_CUSTOM_RECENTS_ROUND_TYPE = "pref_custom_recents_corner_type";
 
     public static boolean useNotificationsGesture(Context context) {
         return getPrefs(context).getBoolean(PREF_NOTIFICATIONS_GESTURE, true);
@@ -182,6 +184,15 @@ public final class Utilities {
 
     public static int getHotseatIcons(Context context, int fallback) {
         return getIconCount(context, HOTSEAT_ICONS, fallback);
+    }
+
+    public static boolean forceLegacyIconMask(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(Icons.KEY_PREF_LEGACY_ICON_MASK, false);
+    }
+
+    public static boolean useCustomRecentsRound(Context context) {
+        return getPrefs(context).getBoolean(PREF_CUSTOM_RECENTS_ROUND_SWITCH, false);
     }
 
     public static float getIconSizeModifier(Context context) {
@@ -238,6 +249,26 @@ public final class Utilities {
                 break;
         }
         return offset;
+    }
+
+    public static float getRecentsRoundType(Context context) {
+        String saved = getPrefs(context).getString(PREF_CUSTOM_RECENTS_ROUND_TYPE, "0");
+        float roundness;
+        switch (saved) {
+            case "0":
+                roundness = context.getResources().getDimension(R.dimen.task_corner_radius_default);
+                break;
+            case "1":
+                roundness = context.getResources().getDimension(R.dimen.task_corner_radius_round);
+                break;
+            case "2":
+                roundness = context.getResources().getDimension(R.dimen.task_corner_radius_op);
+                break;
+            default:
+                roundness = context.getResources().getDimension(R.dimen.task_corner_radius);
+                break;
+        }
+        return roundness;
     }
 
     private static int getIconCount(Context context, String preferenceName, int preferenceFallback) {
